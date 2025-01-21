@@ -1,0 +1,171 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  color: #000;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.username {
+  margin-left: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.verified-badge {
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+#dark-mode-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search-bar {
+  margin: 10px 20px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#shayari-container {
+  padding: 20px;
+}
+
+.bubble {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.bubble:hover {
+  transform: scale(1.02);
+}
+
+.bubble .admin-name {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.bubble .admin-name img {
+  margin-left: 5px;
+  width: 14px;
+  height: 14px;
+}
+
+.bubble .shayari-text {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.reactions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.reactions span {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.reactions span:after {
+  content: attr(data-count);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  display: none;
+}
+
+.reactions span.clicked:after {
+  display: inline;
+}
+
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+}.action-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.copy-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.share-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.like-btn {
+  background-color: #ff5722;
+  color: white;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+  background-color: #000;
+  color: #fff;
+}
