@@ -13,15 +13,30 @@
       <img src="https://files.catbox.moe/nd9c9g.png" alt="Profile Picture" class="profile-pic">
       <div class="username">
         <span>Tᴇᴄʜ ɢᴇɴᴜɪs<class=""/span>
-        <img src="https://files.catbox.moe/5axksg.jpeg" alt="Verified Badge" class="verified-badge">
+        <img src="https://files.catbox.moe/h37g94.png" alt="Verified Badge" class="verified-badge">
       </div>
+       </div>
+  <button class="header-menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<div id="menu" class="menu">
+  <ul>
+    <li><a href="about.html" target="_blank">About</a></li>
+    <li><a href="privacy.html" target="_blank">Privacy</a></li>
+    <li><a href="contact.html" target="_blank">Contact Us</a></li>
+    <li><a href="#" onclick="shareWebsite()">Share This</a></li>
+  </ul>
+</div>
   </header>
-
   <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search Shayari..." onkeyup="searchShayari()">
-  </div>
-
+<div class="search-box">
+  <input type="text" id="search-input" placeholder="Search Shayari..." onkeyup="searchShayari()">
+  <button class="search-btn" onclick="searchShayari()">🔍</button>
+</div>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+<div id="shayari-container">
+  <!-- Shayari bubbles will be dynamically added here -->
+</div>
   <!-- Shayari Section -->
   <div id="shayari-container"></div>
 
@@ -37,7 +52,9 @@
       <img src="https://files.catbox.moe/rx4mde.png" alt="Website">
     </a>
   </div>
-
+<footer>
+  <p>© 2025 Shayari Collection | Designed by <a href="#">ᎷᏒ ᏕᏂᏬᏰᏂᏗᎷ</a></p>
+</footer>
   <script src="script.js"></script>
 </body>
-</html>
+        </html>
