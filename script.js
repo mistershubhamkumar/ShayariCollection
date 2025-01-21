@@ -88,3 +88,24 @@ function addComment() {
 
 // Load fake comments on page load
 if (commentsSection) loadFakeComments();
+function searchShayari() {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const shayaris = document.querySelectorAll(".bubble");
+
+  shayaris.forEach((bubble) => {
+    const text = bubble.querySelector(".shayari-text").innerText.toLowerCase();
+    bubble.style.display = text.includes(query) ? "block" : "none";
+  });
+}function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Function to share the website link on WhatsApp
+function shareWebsite() {
+  const websiteUrl = window.location.href;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
+    'Check out this amazing website: ' + websiteUrl
+  )}`;
+  window.open(whatsappUrl, '_blank');
+}
