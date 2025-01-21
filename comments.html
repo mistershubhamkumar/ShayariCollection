@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }.shayari-display {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.comments-section {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Shayari Comments</h1>
+  <div class="shayari-display" id="shayari-display"></div>
+  <textarea id="comment-input" placeholder="Write your comment..."></textarea>
+  <button onclick="addComment()">Submit</button>  <div class="comments-section" id="comments-section">
+    <h3>Comments:</h3>
+  </div>  <script>
+    // Get shayari from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const shayari = decodeURIComponent(urlParams.get('shayari') || '');
+    const shayariDisplay = document.getElementById('shayari-display');
+    shayariDisplay.textContent = `Shayari: ${shayari}`;
+
+    const commentsSection = document.getElementById('comments-section');
+
+    // Load fake comments from comments.txt
+    function loadFakeComments() {
+      fetch('comments.txt')
+        .then((response) => response.text())
+        .then((data) => {
+          const fakeComments = data.split('\n').filter((comment) => comment.trim() !== '');
+          fakeComments.forEach((comment) => {
+            addCommentToUI(comment);
+          });
+        });
+    }
+
+    // Add comment to UI
+    function addCommentToUI(comment) {
+      const commentDiv = document.createElement('div');
+      commentDiv.classList.add('comment');
+      commentDiv.textContent = comment;
+      commentsSection.appendChild(commentDiv);
+    }
+
+    // Add user comment
+    function addComment() {
+      const commentInput = document.getElementById('comment-input');
+      const userComment = commentInput.value.trim();
+
+      if (userComment) {
+        addCommentToUI(userComment); // Add to UI
+        commentInput.value = ''; // Clear input
+      } else {
+        alert('Please write a comment!');
+      }
+    }
+
+    // Load fake comments on page load
+    loadFakeComments();
+  </script></body>
+</html>
