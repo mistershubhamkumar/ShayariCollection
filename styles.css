@@ -47,125 +47,246 @@ header {
   cursor: pointer;
 }
 
-.search-bar {
-  margin: 10px 20px;
-}
-
-#search-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 #shayari-container {
   padding: 20px;
 }
 
+/* Stylish Bubble Box */
 .bubble {
-  background-color: #fff;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
-  transition: transform 0.2s;
+  background: rgba(255, 255, 255, 0.8);
+  border-left: 5px solid #007bff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+/* Border Animation */
+.bubble:before,
+.bubble:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  animation: lineAnimation 2s linear infinite;
+}
+
+.bubble:after {
+  top: auto;
+  bottom: 0;
+  height: 2px;
+  animation-delay: -1s;
+}
+
+@keyframes lineAnimation {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 .bubble:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.shayari-text {
+  font-weight: bold; /* Makes text bold */
+  font-size: 20px; /* Adjust size as needed */
+  color: #333; /* Optional: Set the text color */
+  font-family: 'Arial', sans-serif; /* Choose a clean font */
+  line-height: 1.6; /* Improves readability */
 }
 
-.bubble .admin-name {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 5px;
+/* Stylish Buttons */
+.action-btn {
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+}
+
+.share-btn {
+  background: linear-gradient(135deg, #2196f3, #64b5f6);
+}
+
+.like-btn {
+  background: linear-gradient(135deg, #ff5722, #ff8a65);
+}
+
+/* Search Box Container */
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
   display: flex;
   align-items: center;
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  border-radius: 30px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.bubble .admin-name img {
-  margin-left: 5px;
-  width: 14px;
-  height: 14px;
+/* Search Input Field */
+#search-input {
+  flex: 1;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+  transition: all 0.3s ease;
 }
 
-.bubble .shayari-text {
-  font-weight: bold;
-  margin: 5px 0;
+/* Input Field Focus Effect */
+#search-input:focus {
+  box-shadow: 0 0 10px rgba(255, 138, 0, 0.5);
+  transform: scale(1.02);
+  animation: pulse 1s infinite alternate;
 }
 
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 10px rgba(255, 138, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(229, 46, 113, 0.7);
+  }
 }
 
-.reactions {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.reactions span {
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-}
-
-.reactions span:after {
-  content: attr(data-count);
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: red;
+/* Search Button */
+.search-btn {
+  height: 40px;
+  width: 40px;
+  background: #ff8a00;
   color: white;
-  font-size: 12px;
-  padding: 2px 5px;
+  border: none;
   border-radius: 50%;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.reactions span.clicked:after {
-  display: inline;
+/* Hover Effect on Button */
+.search-btn:hover {
+  background: #e52e71;
+  box-shadow: 0 4px 8px rgba(229, 46, 113, 0.5);
+  transform: scale(1.1);
 }
 
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: #007bff;
+  color: white;
+}
+
+footer a {
+  color: #ff8a00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}/* Social Media Icons */
 .social-icons {
   text-align: center;
   margin-top: 20px;
 }
 
 .social-icons img {
-  width: 30px;
-  margin: 0 10px;
+  width: 30px; /* Adjust icon size */
+  height: 30px; /* Maintain proportional height */
+  margin: 0 10px; /* Spacing between icons */
   cursor: pointer;
-}.action-btn {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Effect */
+.social-icons img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}.shayari-text {
+  font-family: "Poppins", sans-serif; /* Clean and modern font */
+  font-size: 1.2rem; /* Adjusted size for better fit */
+  color: #333; /* Neutral color for readability */
+  line-height: 1.6; /* Consistent spacing between lines */
+  text-align: justify; /* Justify for better alignment */
+  padding: 10px; /* Balanced padding */
+}.menu {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+  color: #007bff;
+}
+
+.header-menu-btn {
   padding: 10px 15px;
-  margin: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.copy-btn {
-  background-color: #4caf50;
-  color: white;
-}
-
-.share-btn {
-  background-color: #2196f3;
-  color: white;
-}
-
-.like-btn {
-  background-color: #ff5722;
-  color: white;
-}
-
-.action-btn:hover {
-  transform: scale(1.1);
-  background-color: #000;
-  color: #fff;
+.header-menu-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
